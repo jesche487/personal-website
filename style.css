@@ -214,6 +214,20 @@ p:last-child {
   text-decoration: underline;
 }
 
+.project-cta {
+  display: inline-block;
+  background: transparent;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.project-cta:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
 .project-link em {
   color: var(--text-muted);
   font-style: normal;
