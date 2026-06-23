@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Django Todo API — Jesse Chen</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .project-header {
+      max-width: 42rem;
+      margin: 0 auto 2rem;
+      padding-top: 1rem;
+    }
+
+    .project-header .back-link {
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      color: var(--accent);
+    }
+
+    .project-header .back-link:hover {
+      color: var(--accent-hover);
+    }
+
+    .project-hero {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .project-hero img {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+      background: var(--bg-soft);
+      display: block;
+    }
+
+    .project-hero-actions {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .project-action-card {
+      padding: 1rem 1.15rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--bg-soft);
+    }
+
+    .project-action-card strong {
+      display: block;
+      margin-bottom: 0.55rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .project-action-card a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .project-action-card a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    .project-summary {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .project-stack span {
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero hero-compact project-header">
+      <a class="back-link" href="projects.html">← Projects</a>
+      <div>
+        <h1>Django Todo API</h1>
+        <p class="tagline">Python · Django · Django REST Framework · Render</p>
+      </div>
+    </section>
+
+    <section class="section project-summary">
+      <div class="project-hero">
+        <img src="./assets/django-todo-api-thumbnail.jpg" alt="Django Todo API live app screenshot">
+        <div class="project-hero-actions">
+          <div class="project-action-card">
+            <strong>Live Demo</strong>
+            <a href="https://todo-checklist-qpp2.onrender.com" target="_blank" rel="noopener noreferrer">todo-checklist-qpp2.onrender.com</a>
+          </div>
+          <div class="project-action-card">
+            <strong>Source</strong>
+            <a href="https://github.com/jesche487/todo-api" target="_blank" rel="noopener noreferrer">github.com/jesche487/todo-api</a>
+          </div>
+        </div>
+        <div class="project-stack">
+          <span>Python</span>
+          <span>Django</span>
+          <span>Django REST Framework</span>
+          <span>PostgreSQL</span>
+          <span>Render</span>
+        </div>
+      </div>
+
+      <p class="section-label">What It Does</p>
+      <p class="section-intro">
+        A fully functional REST API for managing todo items — create, read, update, and delete tasks via clean JSON endpoints. Built to learn the Django ecosystem end-to-end, from models and migrations to deployment on Render.
+      </p>
+
+      <p class="section-label">Technical Decisions</p>
+      <ul>
+        <li>Used <strong>Django REST Framework</strong> for serializers and class-based views — gets you a browsable API UI out of the box, which made debugging fast.</li>
+        <li>Django's ORM and <strong>migration system</strong> handled the schema — no raw SQL; changes to models generate versioned migration files automatically.</li>
+        <li>Swapped SQLite for <strong>PostgreSQL via dj-database-url</strong> in production, keeping SQLite locally for speed.</li>
+        <li><strong>Whitenoise</strong> for static file serving without needing a separate CDN or S3 bucket.</li>
+        <li>Environment variables for <code>SECRET_KEY</code> and <code>DEBUG</code> so the same codebase runs locally and in prod without changes.</li>
+        <li>Deployed via <strong>Render</strong> with a <code>build.sh</code> script that handles installs, static collection, and migrations on every deploy.</li>
+      </ul>
+
+      <p class="section-label">Problems Solved</p>
+      <ul>
+        <li>Troubleshot the <code>todos</code> app not being detected by migrations — tracked it down to a missing entry in <code>INSTALLED_APPS</code>.</li>
+        <li>Fixed Windows CRLF line-ending issues in <code>build.sh</code> that caused the Render deploy to silently fail.</li>
+        <li>Wired up the URL router correctly so all todo routes live under <code>/api/</code> and the root app delegates cleanly.</li>
+      </ul>
+
+      <p class="section-label">What I'd Do Differently / Next</p>
+      <ul>
+        <li>Add user authentication so todos are scoped per user, not globally shared.</li>
+        <li>Write unit tests for the serializer and views using DRF's test client.</li>
+        <li>Add due dates and priority levels to the model, with filtering on the API side.</li>
+        <li>Build a simple frontend (React or plain JS) that consumes the API, so it's more demo-able.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
