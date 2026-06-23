@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JJK Domain Expansion Detector — Jesse Chen</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .project-header {
+      max-width: 42rem;
+      margin: 0 auto 2rem;
+      padding-top: 1rem;
+    }
+
+    .project-header .back-link {
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      color: var(--accent);
+    }
+
+    .project-header .back-link:hover {
+      color: var(--accent-hover);
+    }
+
+    .project-hero {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .project-hero img {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+      background: var(--bg-soft);
+      display: block;
+    }
+
+    .project-hero-actions {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .project-action-card {
+      padding: 1rem 1.15rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--bg-soft);
+    }
+
+    .project-action-card strong {
+      display: block;
+      margin-bottom: 0.55rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .project-action-card a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .project-action-card a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    .project-action-card span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .project-summary {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .project-stack span {
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .milestone-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.75rem;
+      font-size: 0.92rem;
+    }
+
+    .milestone-table th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .milestone-table td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .milestone-table tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero hero-compact project-header">
+      <a class="back-link" href="projects.html">← Projects</a>
+      <div>
+        <h1>JJK Domain Expansion Detector</h1>
+        <p class="tagline">Python · OpenCV · MediaPipe · scikit-learn</p>
+      </div>
+    </section>
+
+    <section class="section project-summary">
+      <div class="project-hero">
+        <!-- <img src="./assets/jjk-domain-expansion-thumbnail.jpg" alt="JJK Domain Expansion Detector screenshot"> -->
+        <div class="project-hero-actions">
+          <div class="project-action-card">
+            <strong>Source</strong>
+            <a href="https://github.com/jesche487/jjk-de-proj" target="_blank" rel="noopener noreferrer">github.com/jesche487/jjk-de-proj</a>
+          </div>
+          <div class="project-action-card">
+            <strong>Status</strong>
+            <span>In progress — core detection working</span>
+          </div>
+        </div>
+        <div class="project-stack">
+          <span>Python</span>
+          <span>OpenCV</span>
+          <span>MediaPipe</span>
+          <span>scikit-learn</span>
+          <span>NumPy</span>
+        </div>
+      </div>
+
+      <p class="section-label">What It Does</p>
+      <p class="section-intro">
+        A real-time hand sign recognition system that detects domain expansion gestures from the anime <em>Jujutsu Kaisen</em>. The app processes a live camera feed, uses MediaPipe to extract 21 hand landmark points per frame, and runs them through a trained ML classifier to identify specific signs — triggering animated GIF overlays for Gojo's Unlimited Void and Sukuna's Malevolent Shrine when detected.
+      </p>
+
+      <p class="section-label">Milestone Progress</p>
+      <table class="milestone-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Milestone</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Camera feed with hand landmarks drawn</td>
+            <td>✅ Done</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Calibration script to capture landmark samples</td>
+            <td>✅ Done</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Manual rule-based detection for Gojo's sign</td>
+            <td>✅ Done</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Visual trigger — split-screen layout with GIF overlay</td>
+            <td>✅ Done</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>ML classifier replacing manual rules</td>
+            <td>✅ Done</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Sukuna's sign added (record, retrain, done)</td>
+            <td>✅ Done</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Polish — confidence thresholds, hold duration, reset logic</td>
+            <td>🔄 In progress</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="section-label">Technical Decisions</p>
+      <ul>
+        <li>Used <strong>MediaPipe HandLandmarker</strong> to extract 21 normalized landmark coordinates per hand — training on landmark data rather than raw images means the model stays tiny, trains in seconds, and needs no GPU.</li>
+        <li>Started with <strong>manual geometric rules</strong> to detect Gojo's sign (finger angles, relative positions) to get the full pipeline working first, then swapped in a <strong>scikit-learn classifier</strong> so adding new signs just means recording more samples and retraining.</li>
+        <li><strong>OpenCV</strong> handles the split-screen display: left half shows the live camera feed with the hand skeleton drawn, right half plays the domain expansion GIF when a sign is detected.</li>
+        <li>GIFs are stored in a dictionary keyed by sign name — adding a new domain expansion requires no structural changes, just a new entry and a set of training samples.</li>
+        <li>Training data is collected via a separate <code>calibrate.py</code> script: press space to record samples of a sign, save to a <code>.npy</code> file, then run <code>train.py</code> to produce a new model.</li>
+      </ul>
+
+      <p class="section-label">Problems Solved</p>
+      <ul>
+        <li>MediaPipe 0.10+ deprecated the <code>mp.solutions.hands</code> API — migrated to the new <strong>HandLandmarker tasks API</strong> and handled the model download on first run.</li>
+        <li>OpenCV windows weren't appearing on Windows — tracked it down to a thread timing issue and added explicit window focus logic.</li>
+        <li>GIF playback required frame-by-frame management in OpenCV since it has no native GIF support — built a small loader that cycles frames at the correct interval.</li>
+      </ul>
+
+      <p class="section-label">What I'd Do Differently / Next</p>
+      <ul>
+        <li>Add more domain expansions — the ML pipeline makes this straightforward, just record samples and retrain.</li>
+        <li>Improve confidence thresholding so detections require holding a sign for a brief duration, reducing false positives.</li>
+        <li>Package it as a standalone executable so it runs without a Python environment.</li>
+        <li>Explore adding two-hand gesture support for signs that use both hands simultaneously.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
